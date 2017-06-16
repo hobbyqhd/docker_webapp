@@ -1,9 +1,13 @@
-FROM ubuntu
+FROM ubuntu:14.04
 MAINTAINER hobbyqhd “liubingxin1030@outlook.com”
-ENV REFRESHED_AT 2017_06_14
+ENV REFRESHED_AT 2017_06_16
+
 RUN apt-get update
-RUN apt-get -y -q install nginx
-RUN mkdir -p /var/www/html
-ADD nginx/global.conf /etc/nginx/conf.d/
-ADD nginx/nginx.conf /etc/nginx/conf.d/nginx.conf
-EXPOSE 80
+RUN apt-get -y install ruby ruby-dev build-essential redis-tools
+RUN gem install --no-rdoc --no-ri sinatra json redis
+
+RUN mkdir -p /opt/webapp
+
+EXPOSE 4567
+
+CMD [ "/opt/webapp/bin/webapp" ]
