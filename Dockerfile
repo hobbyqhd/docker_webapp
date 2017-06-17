@@ -1,4 +1,4 @@
-FROM ubuntu:14.04
+FROM ubuntu
 MAINTAINER hobbyqhd “liubingxin1030@outlook.com”
 ENV REFRESHED_AT 2017_06_16
 
